@@ -78,11 +78,10 @@ public class logInSignUp extends My_Frame {
     cardPanel.add(signUp, "signUp");
     cardPanel.add(login, "login");
   }
-s
+
   public static void main(String[] args) {
     FlatMaterialDeepOceanIJTheme.setup();
 
     new logInSignUp("Gym Track", 900, 600, JFrame.EXIT_ON_CLOSE, false, true);
   }
-
 }
