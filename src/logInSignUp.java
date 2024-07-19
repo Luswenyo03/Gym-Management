@@ -42,6 +42,8 @@ public class logInSignUp extends My_Frame {
     smallGbc.anchor = GridBagConstraints.CENTER;
     smallGbc.insets = new Insets(10, 10, 10, 10);
 
+    //ADDING COMPONENTS TO THE LOGIN PANEL FOR USER LOGIN
+
     //CREATING A PANEL THAT HOLDS MANY PANELS
     JPanel cardPanel = new JPanel(new CardLayout());
 
@@ -60,13 +62,27 @@ public class logInSignUp extends My_Frame {
     loginPanel.putClientProperty(FlatClientProperties.STYLE, " " + "arc : 20");
 
     //ADDING COMPONENTS TO THE LOGIN PANEL FOR USER LOGIN
+    GridBagConstraints loginGbc = new GridBagConstraints();
 
     JLabel welcome = new JLabel("Welcome back!");
     welcome.putClientProperty(
       FlatClientProperties.STYLE,
-      " " + "font : bold 1+0"
+      " " + "font : bold +10"
     );
-    loginPanel.add(welcome);
+    welcome.setForeground(Color.WHITE);
+    loginGbc.gridx = 0;
+    loginGbc.gridy = 0;
+    loginPanel.add(welcome, loginGbc);
+
+    JTextField username = new JTextField();
+    loginGbc.gridx = 0;
+    loginGbc.gridy = 1;
+    loginPanel.add(username, loginGbc);
+
+    JTextField password = new JTextField();
+    loginGbc.gridx = 0;
+    loginGbc.gridy = 2;
+    loginPanel.add(password, loginGbc);
 
     //ADDING THE LOGIN FORM TO THE LOGIN PAGE
     login.add(loginPanel, smallGbc);
