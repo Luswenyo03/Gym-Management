@@ -1,4 +1,5 @@
 import com.formdev.flatlaf.FlatClientProperties;
+import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialDeepOceanIJTheme;
 import java.awt.CardLayout;
 import java.awt.Color;
@@ -6,8 +7,7 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 
 public class logInSignUp extends My_Frame {
 
@@ -55,8 +55,18 @@ public class logInSignUp extends My_Frame {
     //CREATING THE LOGIN FORM AND ITS PROPERTIES
     JPanel loginPanel = new JPanel();
     loginPanel.setBackground(new Color(0, 0, 0, 60));
+    loginPanel.setLayout(new GridBagLayout());
     loginPanel.setPreferredSize(new Dimension(350, 500));
     loginPanel.putClientProperty(FlatClientProperties.STYLE, " " + "arc : 20");
+
+    //ADDING COMPONENTS TO THE LOGIN PANEL FOR USER LOGIN
+
+    JLabel welcome = new JLabel("Welcome back!");
+    welcome.putClientProperty(
+      FlatClientProperties.STYLE,
+      " " + "font : bold 1+0"
+    );
+    loginPanel.add(welcome);
 
     //ADDING THE LOGIN FORM TO THE LOGIN PAGE
     login.add(loginPanel, smallGbc);
@@ -75,11 +85,12 @@ public class logInSignUp extends My_Frame {
     signUp.add(signUpPanel, smallGbc);
 
     //ADDING OBJECTS TO THE MAIN PANEL
-    cardPanel.add(signUp, "signUp");
     cardPanel.add(login, "login");
+    cardPanel.add(signUp, "signUp");
   }
 
   public static void main(String[] args) {
+    FlatRobotoFont.install();
     FlatMaterialDeepOceanIJTheme.setup();
 
     new logInSignUp("Gym Track", 900, 600, JFrame.EXIT_ON_CLOSE, false, true);
