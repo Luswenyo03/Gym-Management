@@ -58,31 +58,60 @@ public class logInSignUp extends My_Frame {
     JPanel loginPanel = new JPanel();
     loginPanel.setBackground(new Color(0, 0, 0, 60));
     loginPanel.setLayout(new GridBagLayout());
-    loginPanel.setPreferredSize(new Dimension(350, 500));
-    loginPanel.putClientProperty(FlatClientProperties.STYLE, " " + "arc : 20");
+    loginPanel.setPreferredSize(new Dimension(350, 250));
+    loginPanel.putClientProperty(FlatClientProperties.STYLE, " " + "arc : 50");
 
     //ADDING COMPONENTS TO THE LOGIN PANEL FOR USER LOGIN
     GridBagConstraints loginGbc = new GridBagConstraints();
 
-    JLabel welcome = new JLabel("Welcome back!");
+    ImageIcon icon = new ImageIcon(
+      "C:/Users/mafenyeho hollet/Downloads/loc.png"
+    );
+
+    JLabel welcome = new JLabel();
     welcome.putClientProperty(
       FlatClientProperties.STYLE,
       " " + "font : bold +10"
     );
-    welcome.setForeground(Color.WHITE);
+    welcome.setIcon(icon);
     loginGbc.gridx = 0;
     loginGbc.gridy = 0;
     loginPanel.add(welcome, loginGbc);
 
     JTextField username = new JTextField();
+    username.putClientProperty(
+      FlatClientProperties.PLACEHOLDER_TEXT,
+      "Username"
+    );
+    username.putClientProperty(FlatClientProperties.STYLE, " " + "arc: 30");
     loginGbc.gridx = 0;
     loginGbc.gridy = 1;
+    loginGbc.ipadx = 170;
+    loginGbc.insets = new Insets(30, 0, 0, 0);
     loginPanel.add(username, loginGbc);
 
-    JTextField password = new JTextField();
+    JPasswordField password = new JPasswordField();
+    password.putClientProperty(
+      FlatClientProperties.STYLE,
+      " " + "showRevealButton: true; arc: 30"
+    );
+    password.putClientProperty(
+      FlatClientProperties.PLACEHOLDER_TEXT,
+      "Password"
+    );
     loginGbc.gridx = 0;
     loginGbc.gridy = 2;
+    loginGbc.ipadx = 170;
+    loginGbc.insets = new Insets(18, 0, 0, 0);
     loginPanel.add(password, loginGbc);
+
+    JButton signIn = new JButton("Sign In");
+    signIn.putClientProperty(FlatClientProperties.STYLE, " " + "arc: 30");
+    loginGbc.gridx = 0;
+    loginGbc.gridy = 3;
+    loginGbc.ipadx = 10;
+    loginGbc.insets = new Insets(15, 0, 0, 0);
+    loginPanel.add(signIn, loginGbc);
 
     //ADDING THE LOGIN FORM TO THE LOGIN PAGE
     login.add(loginPanel, smallGbc);
@@ -95,7 +124,7 @@ public class logInSignUp extends My_Frame {
     JPanel signUpPanel = new JPanel();
     signUpPanel.setBackground(new Color(1, 0, 0, 60));
     signUpPanel.setPreferredSize(new Dimension(350, 500));
-    signUpPanel.putClientProperty(FlatClientProperties.STYLE, " " + "arc : 20");
+    signUpPanel.putClientProperty(FlatClientProperties.STYLE, " " + "arc : 30");
 
     //ADDING THE SIGNUP FORM TO THE SIGNUP PAGE
     signUp.add(signUpPanel, smallGbc);
